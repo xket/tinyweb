@@ -3,7 +3,6 @@
  */
 #include "./tinyweb.h"
 
-void request_progress(int fd);
 void read_requesthdrs(rio_t *rp);
 int  parse_uri(char *uri, char *filename, char *cgiargs);
 void serve_static(int fd, char *filename, int filesize);
@@ -25,14 +24,14 @@ void request_progress(int fd)
   
     /* Read request line and headers */
     Rio_readinitb(&rio, fd);
-    Rio_readlineb(&rio, buf, MAXLINE);                   //read first line containing request method 
+    Rio_readlineb(&rio, buf, MAXLINE);                   /* read first line containing request method */
     sscanf(buf, "%s %s %s", method, uri, version);       
-    if (strcasecmp(method, "GET")) {                     //version01,just GET method 
+    if (strcasecmp(method, "GET")) {                     /* version01,just GET method */
        clienterror(fd, method, "501", "Not Implemented",
                 "Tiny does not implement this method");
         return;
-    }                                                    
-    read_requesthdrs(&rio);                              //read the rest of headers and abandon 
+    }                                                   
+    read_requesthdrs(&rio);                              /*read the rest of headers and abandon*/ 
 
     /* Parse URI from GET request */
     is_static = parse_uri(uri, filename, cgiargs);       
@@ -51,7 +50,7 @@ void request_progress(int fd)
 		serve_static(fd, filename, sbuf.st_size);        
     }
     else { /* Serve dynamic content */
-		if (!(S_ISREG(sbuf.st_mode)) || !(S_IXUSR & sbuf.st_mode)) { //whether regular file or user-execute 
+		if (!(S_ISREG(sbuf.st_mode)) || !(S_IXUSR & sbuf.st_mode)) { /* whether regular file or user-execute */ 
 			clienterror(fd, filename, "403", "Forbidden",
 				"Tiny couldn't run the CGI program");
 	    return;
@@ -69,7 +68,7 @@ void read_requesthdrs(rio_t *rp)
     char buf[MAXLINE];
 
     Rio_readlineb(rp, buf, MAXLINE);
-    while(strcmp(buf, "\r\n")) {          			//read until blank line 
+    while(strcmp(buf, "\r\n")) {          			/*read until blank line*/
 		Rio_readlineb(rp, buf, MAXLINE);
 		printf("%s", buf);
     }
@@ -86,24 +85,24 @@ int parse_uri(char *uri, char *filename, char *cgiargs)
 {
     char *ptr;
 
-    if (!strstr(uri, "cgi-bin")) {  /* Static content */ //search "cgi-bin",return NULL if not found 
+    if (!strstr(uri, "cgi-bin")) {  /* Static content ,search "cgi-bin",return NULL if not found*/
 		strcpy(cgiargs, "");                              
 		strcpy(filename, ".");                           
-		strcat(filename, uri);                           //convert to ./uri 
+		strcat(filename, uri);                           /*convert to ./uri*/ 
 		if (uri[strlen(uri)-1] == '/')                   
-			strcat(filename, "home.html");               //default url
+			strcat(filename, "home.html");               /*default url*/
 		return 1;
     }
     else {  /* Dynamic content */                        
 		ptr = strstr(uri, '?');                           
 		if (ptr) {
 			strcpy(cgiargs, ptr+1);
-			*ptr = '\0';								//convert '?' into '\0'
+			*ptr = '\0';				/*convert '?' into '\0'*/
 		}
 		else 
 			strcpy(cgiargs, "");                         
 		strcpy(filename, ".");                           
-		strcat(filename, uri);                          //
+		strcat(filename, uri);                          
 		return 0;
     }
 }
@@ -164,7 +163,7 @@ void serve_dynamic(int fd, char *filename, char *cgiargs)
   
     if (Fork() == 0) { /* child */ 
 	/* Real server would set all CGI vars here */
-		setenv("QUERY_STRING", cgiargs, 1); 		//not async-signal safe,not thread-safe but Ok
+		setenv("QUERY_STRING", cgiargs, 1); 		/not async-signal safe,not thread-safe but Ok*/
 		Dup2(fd, STDOUT_FILENO);         		/* Redirect stdout to client */ 
 		Execve(filename, emptylist, environ); /* Run CGI program */ 
     }
