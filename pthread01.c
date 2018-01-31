@@ -21,7 +21,7 @@ thread_main(void *arg)
     	Pthread_mutex_lock(&mlock);
 		connfd = Accept(listenfd, (SA*)NULL, NULL);
 		Pthread_mutex_unlock(&mlock);
-		//tptr[(int) arg].thread_count++;   using in future
+		/* tptr[(int) arg].thread_count++;   using in future */
 		request_process(connfd);		/* process request */
 		Close(connfd);
 	}
