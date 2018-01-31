@@ -23,7 +23,7 @@ main(int argc, char **argv)
 	nthreads = atoi(argv[argc-1]);
 	tptr = Calloc(nthreads, sizeof(Thread));
 	
-	/*SIGCHLD handle*/
+	/*SIGCHLD handler function*/
 	Signal(SIGCHLD, sig_chld);
 	
 	/*make threads,process request*/
