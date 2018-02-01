@@ -22,7 +22,7 @@ void *Calloc(size_t n, size_t size)
 {  
     void *ptr = calloc(n, size);  
     if ( ptr == NULL)  
-        posix_error((int)NULL,"calloc error");  
+        posix_error(0,"calloc error");  
     return ptr;
 }
 
@@ -30,7 +30,7 @@ void *Malloc(size_t size)
 {    
     void *ptr = malloc(size);    
     if ( ptr == NULL )    
-        posix_error(NULL,"malloc error");    
+        posix_error(0,"malloc error");    
     return ptr;    
 }
 	
