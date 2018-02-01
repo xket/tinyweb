@@ -25,10 +25,6 @@
 /* Our own error-handling functions */
 void unix_error(char *msg);
 void posix_error(int code, char *msg);
-
-/* Pthreads thread control wrappers */
-void Pthread_create(pthread_t *tidp, pthread_attr_t *attrp,
-		    void * (*routine)(void *), void *argp);
 			
 /* Simplifies calls to bind(), connect(), and accept() */
 typedef struct sockaddr SA;
@@ -39,9 +35,6 @@ signal(int signo, Sigfunc *func);
 
 Sigfunc *
 Signal(int signo, Sigfunc *func);
-
-void Pthread_mutex_lock(pthread_mutex_t *mptr);  
-void Pthread_mutex_unlock(pthread_mutex_t *mptr);  
 
 /* Persistent state for the robust I/O (Rio) package */
 #define RIO_BUFSIZE 8192
