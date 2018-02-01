@@ -1,4 +1,4 @@
-* Our own header for the programs that use threads.
+/* Our own header for the programs that use threads.
    Include this file, instead of "tinyweb.h". */
    
 #ifndef	__tinyweb_pthread_h
