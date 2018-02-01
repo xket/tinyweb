@@ -5,4 +5,5 @@ typedef struct {
 Thread	*tptr;		/* array of Thread structures; calloc'ed */
 
 int				listenfd, nthreads;
+pthread_mutex_t mylock;
 /*socklen_t		addrlen; use in future */
