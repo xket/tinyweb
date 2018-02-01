@@ -2,7 +2,6 @@
  * pthreads wrapper functions.
  */
  
-#include	"./tinyweb.h"
 #include	"./tinythread.h"
 
 void Pthread_create(pthread_t *tidp, pthread_attr_t *attrp, 
