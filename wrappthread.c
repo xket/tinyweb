@@ -4,7 +4,7 @@
  
 #include	"./tinythread.h"
 
-void Pthread_create(pthread_t *tidp, pthread_attr_t *attrp, 
+void Pthread_create(pthread_t *tidp, const pthread_attr_t *attrp, 
 		    void * (*routine)(void *), void *argp) 
 {
     int rc;
