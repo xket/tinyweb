@@ -42,7 +42,7 @@ void request_progress(int fd)
     }                                                    
 
     if (is_static) { /* Serve static content */          
-		if (!(S_ISREG(sbuf.st_mode)) || !(S_IRUSR & sbuf.st_mode)) { //whether regular file or user-read
+		if (!(S_ISREG(sbuf.st_mode)) || !(S_IRUSR & sbuf.st_mode)) { /* whether regular file or user-read*/
 			clienterror(fd, filename, "403", "Forbidden",
 				"Tiny couldn't read the file");
 			return;
@@ -163,7 +163,7 @@ void serve_dynamic(int fd, char *filename, char *cgiargs)
   
     if (Fork() == 0) { /* child */ 
 	/* Real server would set all CGI vars here */
-		setenv("QUERY_STRING", cgiargs, 1); 		/not async-signal safe,not thread-safe but Ok*/
+		setenv("QUERY_STRING", cgiargs, 1); 		/*not async-signal safe,not thread-safe but Ok*/
 		Dup2(fd, STDOUT_FILENO);         		/* Redirect stdout to client */ 
 		Execve(filename, emptylist, environ); /* Run CGI program */ 
     }
