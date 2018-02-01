@@ -4,7 +4,7 @@
 
 /*strerror:not thread-safe;*/
 
-pthread_mutex_t	mylock = PTHREAD_MUTEX_INITIALIZER;
+mylock = PTHREAD_MUTEX_INITIALIZER;	
 
 		 
 int
