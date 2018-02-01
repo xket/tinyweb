@@ -93,6 +93,6 @@ pid_t Fork(void);
 void Execve(const char *filename, char *const argv[], char *const envp[]);
 extern char **environ; /* defined by libc */
 
-void request_progress(int fd) 
+void request_progress(int fd); 
 
 #endif /* __TinyWeb_H__ */  
