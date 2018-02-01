@@ -18,9 +18,9 @@ thread_main(void *arg)
 	
 	printf("thread %d starting\n", (int) arg); /* ? potential problem,not thread  safe*/
 	for ( ; ; ) {
-    		Pthread_mutex_lock(&mlock);
+    		Pthread_mutex_lock(&mylock);
 		connfd = Accept(listenfd, (SA*)NULL, NULL);
-		Pthread_mutex_unlock(&mlock);
+		Pthread_mutex_unlock(&mylock);
 		/* tptr[(int) arg].thread_count++;   using in future */
 		request_process(connfd);		/* process request */
 		Close(connfd);
