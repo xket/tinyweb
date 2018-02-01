@@ -149,8 +149,8 @@ void Pthread_mutex_unlock(pthread_mutex_t *mptr)
     unix_error("pthread_mutex_unlock error");  
 }  
 
-*********************************************************************
- * The Rio package - robust I/O functions
+/**********************************************************************
+ * The Rio package - robust I/O functions                             *
  **********************************************************************/
 /*
  * rio_readn - robustly read n bytes (unbuffered)
