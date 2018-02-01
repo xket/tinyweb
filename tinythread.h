@@ -8,6 +8,7 @@
 
 void	Pthread_create(pthread_t *, const pthread_attr_t *,
 					   void * (*)(void *), void *);
-void	Pthread_join(pthread_t, void **);
+void Pthread_mutex_lock(pthread_mutex_t *mptr);
+void Pthread_mutex_unlock(pthread_mutex_t *mptr);
 
 #endif	/* __tinyweb_pthread_h */
