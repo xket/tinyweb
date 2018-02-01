@@ -10,7 +10,7 @@ pthread_mutex_t	mlock = PTHREAD_MUTEX_INITIALIZER;
 int
 main(int argc, char **argv)
 {
-	int	connfd, port;
+	int	connfd, port,i;
 	void	sig_chld(int), thread_make(int);
 	
     if (argc != 3) {
