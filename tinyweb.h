@@ -1,20 +1,20 @@
 #ifndef __TinyWeb_H__
 #define __TinyWeb_H__
 
-#include <stdio.h> 			/*fprintf,stderr,printf */
+#include <stdio.h> 		/*fprintf,stderr,printf */
 #include <stdlib.h> 		/*exit,atoi,setenv */
 #include <netinet/in.h> 	/*struct sockaddr_in,INADDR_,htons */
 #include <sys/socket.h> 	/*socket,bind,accept,setsockopt */
 #include <unistd.h> 		/*fork,close,execve,dup2,STDOUT_FILENO*/
 #include <string.h> 		/*bzero,strerror*/
 #include <strings.h>		/*strcasecmp*/
-#include <errno.h>			/*error */
+#include <errno.h>		/*error */
 #include <pthread.h> 		/*pthread_mutex_lock/unlock*/
 #include <signal.h> 		/*sigaction*/
 #include <sys/wait.h>		/*waitpid*/
 #include <sys/types.h>		/*pid_t,fork*/
 #include <sys/stat.h>		/*stat,S_ISREG()*/
-#include <fcntl.h>			/*open,O_RDONLY*/
+#include <fcntl.h>		/*open,O_RDONLY*/
 #include <sys/mman.h>		/*mmap,munmap*/
 
 /* Misc constants */
@@ -36,6 +36,7 @@ typedef struct sockaddr SA;
 typedef void Sigfunc(int);
 Sigfunc *
 signal(int signo, Sigfunc *func);
+
 Sigfunc *
 Signal(int signo, Sigfunc *func);
 
