@@ -94,7 +94,7 @@ int parse_uri(char *uri, char *filename, char *cgiargs)
 		return 1;
     }
     else {  /* Dynamic content */                        
-		ptr = strstr(uri, '?');                           
+		ptr = strstr(uri, "?");                           
 		if (ptr) {
 			strcpy(cgiargs, ptr+1);
 			*ptr = '\0';				/*convert '?' into '\0'*/
