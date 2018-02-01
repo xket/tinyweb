@@ -1,4 +1,4 @@
-#include	"./tinyweb.h"
+#include	"./tinythread.h"
 #include	"./pthread01.h"
 
 void
