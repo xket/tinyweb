@@ -11,5 +11,5 @@ threads is pre-generated.
 
 3.connect to host through browser: host-IP:port
 
-4.or use telnet: telnet host-IP port 
+4.or use telnet: telnet host-IP port  
                  GET / HTTP/1.0
