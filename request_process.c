@@ -14,7 +14,7 @@ void clienterror(int fd, char *cause, char *errnum,
 /*
  * request_progress - handle one HTTP request/response transaction
  */
-void request_progress(int fd) 
+void request_process(int fd) 
 {
     int is_static;
     struct stat sbuf;
