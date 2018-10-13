@@ -1,5 +1,5 @@
-# tinyweb version01
-a tiny web server of multithreading.
+# tinyweb v1
+A tiny multithread web server .
 This is a Multithreading Tiny Web Server which derived from
 UNP and CS:APP,only supports GET method.In this programming pattern,
 threads is pre-generated.
