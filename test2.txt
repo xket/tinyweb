@@ -1,0 +1,5 @@
+<<<<<<< HEAD
+branch master
+=======
+branch2
+>>>>>>> bc1
