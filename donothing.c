@@ -1,3 +1,3 @@
-void donothing(){
-   /*do nothing*/
+void foo(){
+   /*do nothing, just for fun*/
 } 
