@@ -4,3 +4,4 @@ void foo(){
    /*do nothing, just for fun*/
 }
 
+/* This file should be ignored*/
